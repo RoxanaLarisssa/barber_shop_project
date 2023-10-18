@@ -52,7 +52,9 @@ ul {
   max-width: 1200px;
   margin: 0 auto;
 }
-
+.global-aside {
+  visibility: hidden;
+}
 .button {
   font-weight: 600;
   font-size: 12px;
@@ -62,39 +64,28 @@ ul {
 }
 
 a {
-  transition: color var(--transition);
-}
+  text-decoration: none;
+  cursor: pointer;
+  color: #303030;
 
-.global-aside {
-  background: white;
-  display: flex;
-  flex-direction: column;
-  flex: 0 1 155px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 55px;
 }
-
-.global-aside-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.global-aside-links>* {
-  margin-top: 40px;
-}
-
-.header-container {
-  background: url(images/tittle-background.png);
-  display: flex;
-  
-}
-
 .header-container-content {
-  background: linear-gradient(rgba(25, 28, 38, 0.20), rgba(25, 28, 38, 0.20));
+  background: linear-gradient(rgba(25, 28, 38, 0.20), rgba(25, 28, 38, 0.20)), url('./images/tittle-background.png');
   padding: 40px 55px 40px 100px;
+  background-repeat: no-repeat;
+  flex: 1 0 auto;
 }
+
+.header-container-content .menu-button {
+  color: white;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 48px;
+  right: 31px;
+  cursor: pointer;
+}
+
 
 img.dash {
   width: 60px;
@@ -287,7 +278,6 @@ a.social-link:focus {
 }
 
 .control-buttons {
-  margin-top: 142px;
   display: flex;
   justify-content: flex-end;
 }
@@ -421,9 +411,11 @@ a.social-link:focus {
   letter-spacing: 0.02em;
   color: var(--text-active);
 }
+/* Services and Prices */
 
 .prices-section {
   background: url('./images/services-background.png') #191c26;
+  background-repeat: no-repeat;
 }
 
 .prices-section .button {
@@ -621,8 +613,31 @@ form .form-group {
   position: relative;
 }
 
-/*......... Modal........... */
 
+/*.........Footer.......*/
+.copyrightrules {
+  padding-top: 30px;
+  color: #9DA4BD;
+  font-family: Open Sans;
+  font-size: 11px;
+  letter-spacing: 2.2px;
+}
+.social-footer {
+  color: #303030;
+  font-family: Open Sans;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2.2px;
+  display:flex;
+  justify-content: end;
+  gap: 40px;
+ 
+}
+
+
+/*......... Modal........... */
 .modal {
   position: fixed;
   top: 0;
@@ -635,8 +650,6 @@ form .form-group {
   align-items: center;
   transition: transform var(--transition);
   pointer-events: auto;
-  opacity: 0.5;
-  transition: 250ms ease;
 }
 
 .modal-content {
@@ -651,7 +664,6 @@ form .form-group {
 .is-hidden {
   visibility: hidden;
   transform: scale(1.1);
-  transition: 250ms ease;
 }
 
 .close-btn {
@@ -682,4 +694,221 @@ form .form-group {
   background-color: grey;
   position: absolute;
   bottom: 0;
+}
+
+.form-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.form-modal input {
+  flex: 2;
+  width: 100%;
+}
+
+.form-modal input:focus {
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #2196F3;
+}
+
+.form-modal input:focus-within>svg {
+  color: #2196F3;
+}
+
+.form-modal.terms-conditions-checkbox {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.agree-check .terms-info {
+  margin-left: 8px;
+  color: #2196F3;
+  font-weight: bold;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+}
+
+.agree-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.agree-check .checkmark {
+  appearance: none;
+}
+
+.agree-check .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 7px;
+  fill: none;
+  border: 2px solid #212121;
+  border-radius: 2px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.agree-check .checkmark:focus+.icon,
+.agree-check .checkmark:checked:focus+.icon {
+  outline: 2px solid #212121;
+}
+
+.agree-check .checkmark:checked+.icon {
+  background-color: #2196f3;
+  border-color: #2196f3;
+  fill: #ffffff;
+  outline: none;
+  stroke: white;
+  stroke-width: 0.2;
+}
+
+.service-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  color: gray;
+}
+.form-modal .submit-button {
+  width: 200px;
+  height: 50px;
+  background-color: #2196F3;
+  cursor: pointer;
+  align-self: center;
+  border: none;
+  border-radius: 4px;
+  color:white;
+}
+
+.js-menu-container {
+  display: none;
+}
+
+.js-menu-container.is-open {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: white;
+  height: 100%;
+  padding: 48px 40px;
+  z-index: 1;
+}
+
+.js-menu-container .js-close-menu {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-bottom: 30px;
+  align-self: flex-end;
+}
+
+.menu-drawer-navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-drawer-navigation .book-a-service-btn-light {
+  width: 194px;
+}
+
+.menu-drawer-social {
+  display: flex;
+}
+
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .header-container {
+    background: #363636;
+    display: flex;
+  }
+
+  .global-aside {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 155px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 55px;
+  }
+
+  .global-aside-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .global-aside-links>* {
+    margin-top: 40px;
+  }
+
+  .section-images {
+    display: flex;
+  }
+
+  .header-container-content .mobile-logo {
+    display: none;
+  }
+}
+
+/* Desktop design */
+@media screen and (min-width: 1280px) {
+  .header-container {
+    background: #363636;
+    display: flex;
+  }
+.global-aside {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 155px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 55px;
+}
+
+.global-aside-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.global-aside-links>* {
+  margin-top: 40px;
+}
+
+  .global-header .main-navigation {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-container-content .menu-button {
+    display: none;
+  }
+
+  .barbers-list {
+    flex-direction: row;
+  }
+
+  .js-menu-container {
+    display: none;
+  }
 }
