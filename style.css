@@ -38,22 +38,16 @@ h6 {
   font-family: var(--heading-font-family);
 }
 
-h2 {
-  font-size: 42px;
-  line-height: 49px;
-  letter-spacing: 0.05em;
-}
-
 ul {
   list-style-type: none;
 }
 
-.container {
+.container { 
+  width: 100%;
   max-width: 1200px;
+  padding: 0 15px;
   margin: 0 auto;
-}
-.global-aside {
-  visibility: hidden;
+  max-height: 100%;
 }
 .button {
   font-weight: 600;
@@ -64,16 +58,31 @@ ul {
 }
 
 a {
-  text-decoration: none;
-  cursor: pointer;
-  color: #303030;
+ color: black;
+ text-decoration: none;
+ font-style: italic;
+ font: bold;
+}
 
+.global-aside {
+  display: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .header-container-content {
   background: linear-gradient(rgba(25, 28, 38, 0.20), rgba(25, 28, 38, 0.20)), url('./images/tittle-background.png');
   padding: 40px 55px 40px 100px;
-  background-repeat: no-repeat;
   flex: 1 0 auto;
+}
+
+.header-container-content .mobile-logo {
+  position: absolute;
+  top: 40px;
+  left: 31px;
 }
 
 .header-container-content .menu-button {
@@ -114,8 +123,9 @@ img.dash {
   cursor: pointer;
   color: #fff;
   outline: none;
-  margin-left: 40px;
-  padding: 12px 25px;
+  margin-left: 30px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
 }
 
 .book-a-service-btn:focus,
@@ -130,8 +140,8 @@ img.dash {
   cursor: pointer;
   color: #303030;
   outline: none;
-  margin-left: 40px;
-  padding: 12px 25px;
+  padding: 15px 25px;
+  margin-left: 30px;
   transition: background-color var(--transition);
 }
 
@@ -141,9 +151,9 @@ img.dash {
 }
 
 .global-header .main-navigation {
-  display: flex;
-  justify-content: space-between;
+  display: none;
 }
+
 
 .global-header .main-navigation ul {
   display: flex;
@@ -196,23 +206,19 @@ a.social-link:focus {
   background: #191C26;
   color: var(--text-color);
   letter-spacing: 0.02em;
-  padding: 130px 55px;
 }
 
 .section-heading {
-  margin-top: 20px;
-  font-size: 42px;
-  line-height: 49.31px;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-
+ display: none;
 }
 
 .section-heading+* {
   margin-top: 20px;
 
 }
-
+.section-smalltext{
+  display: none;
+}
 .section address {
   font-weight: 400;
   font-size: 18px;
@@ -248,6 +254,11 @@ a.social-link:focus {
   font-weight: 400;
   font-size: 18px;
   line-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 50px;
 }
 
 .section--light h1,
@@ -257,8 +268,7 @@ a.social-link:focus {
 }
 
 .heading-with-dash {
-  display: flex;
-  align-items: center;
+padding-top: 20px;
 }
 
 .heading-with-dash h3 {
@@ -270,7 +280,7 @@ a.social-link:focus {
   font-family: "Raleway";
   font-style: normal;
   font-weight: 700;
-  font-size: 72px;
+  font-size: 50px;
   line-height: 85px;
   letter-spacing: 0.05em;
   color: var(--heading-color);
@@ -296,20 +306,12 @@ a.social-link:focus {
   background: #f7f7f7;
 }
 
-.section-with-two-columns {
-  display: flex;
-}
-
 .section-with-two-columns>*:nth-child(2) {
   margin-left: 64px;
 }
 
-.section-with-two-columns>* {
-  flex: 0 1 50%;
-}
-
 .section-images {
-  display: flex;
+  display: none;
 }
 
 .section-images img+img {
@@ -352,7 +354,6 @@ a.social-link:focus {
 .why-us-list .feature {
   width: 170px;
   text-align: center;
-  margin: 30px;
 }
 
 .why-us-list .feature:nth-child(2n) {
@@ -390,6 +391,8 @@ a.social-link:focus {
 /* ..............Barbers List .............*/
 .barbers-list {
   display: flex;
+  flex-direction: column;
+  gap: 76px;
 }
 
 .barbers-list li {
@@ -398,6 +401,11 @@ a.social-link:focus {
   line-height: 25px;
   text-align: center;
   letter-spacing: 0.02em;
+}
+
+.barbers-list li picture {
+  display: flex;
+  justify-content: center;
 }
 
 .barbers-list li+li {
@@ -424,17 +432,15 @@ a.social-link:focus {
 
 .prices {
   margin-top: 46px;
-  display: flex;
 }
 
 .prices-list {
-  flex: 1 0 auto;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 10px;
   line-height: 30px;
   letter-spacing: 0.02em;
   color: var(--text-color);
-  padding: 30px 40px;
+  display: initial;
 }
 
 .prices-list li {
@@ -459,23 +465,17 @@ a.social-link:focus {
 
 /* ...........Motto .........*/
 .motto-cards {
-  margin-top: 40px;
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
+flex-wrap: wrap;
+display: flex;
+gap:20px;
 }
 
 /* .........Booking and Contact Section .........*/
-.booking-and-contact-section {
-  display: flex;
-}
 
-.booking-and-contact-section>.section {
-  flex: 1 0 auto;
-}
+
 
 .booking-and-contact-section .section:nth-child(2) {
-  padding-left: 100px;
+  padding-left: 50px;
 }
 
 .button-transparent {
@@ -494,6 +494,9 @@ a.social-link:focus {
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: #ffffff;
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }
 
 .booking-form {
@@ -558,6 +561,7 @@ form {
   flex-direction: column;
   gap: 44px;
   margin-top: 44px;
+  padding-bottom: 20px;
 }
 
 .form-row {
@@ -625,8 +629,8 @@ form .form-group {
 .social-footer {
   color: #303030;
   font-family: Open Sans;
-  font-size: 11px;
-  font-style: normal;
+  font-size: 9px;
+  font-style: italic;
   font-weight: 600;
   line-height: normal;
   letter-spacing: 2.2px;
@@ -684,10 +688,6 @@ form .form-group {
 .close-btn:focus,
 .close-btn:hover {
   background-color: #6e0505;
-}
-
-.motto-cards-elements {
-  position: relative;
 }
 
 .overlay-text {
@@ -822,6 +822,7 @@ form .form-group {
 .menu-drawer-navigation {
   display: flex;
   flex-direction: column;
+  gap:20px;
 }
 
 .menu-drawer-navigation .book-a-service-btn-light {
@@ -835,11 +836,6 @@ form .form-group {
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .header-container {
-    background: #363636;
-    display: flex;
-  }
-
   .global-aside {
     background: white;
     display: flex;
@@ -862,38 +858,57 @@ form .form-group {
 
   .section-images {
     display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-heading {
+    margin-top: 20px;
+    font-size: 42px;
+    line-height: 49.31px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+  
   }
 
   .header-container-content .mobile-logo {
     display: none;
-  }
+  
 }
-
+.motto-cards {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.booking-and-contact-section {
+  display: flex;
+  justify-content: center;
+}
+}
 /* Desktop design */
 @media screen and (min-width: 1280px) {
-  .header-container {
-    background: #363636;
+
+
+  .global-aside {
+    background: white;
     display: flex;
+    flex-direction: column;
+    flex: 0 1 155px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 55px;
   }
-.global-aside {
-  background: white;
-  display: flex;
-  flex-direction: column;
-  flex: 0 1 155px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 55px;
-}
 
-.global-aside-links {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .global-aside-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.global-aside-links>* {
-  margin-top: 40px;
-}
+  .global-aside-links>* {
+    margin-top: 40px;
+  }
 
   .global-header .main-navigation {
     display: flex;
@@ -904,11 +919,56 @@ form .form-group {
     display: none;
   }
 
+.section-heading {
+  margin-top: 20px;
+  font-size: 42px;
+  line-height: 49.31px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+
+}
+.section-with-two-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 60px;
+}
+.section-description {
+  display: flex;
+  justify-content: center;
+}
   .barbers-list {
+    display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .js-menu-container {
     display: none;
   }
+  .motto-cards {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .booking-and-contact-section {
+    display: flex;
+    justify-content: center;
+  
+}
+.barbers-list {
+  display: flex;
+  flex-direction: row;
+}
+.menu-button .js-menu-container.is-open {
+  display: none;
+}
+
+.container-footer{
+  width: 100%;
+  max-width: 1158px;
+}
+
 }
